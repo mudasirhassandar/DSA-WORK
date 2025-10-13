@@ -71,21 +71,6 @@ struct node *insertionatend(struct node *head, int z)
     p->next = insert;
     return head;
 }
-// function of insertion after  node.
-struct node *insertionafternode(struct node *head, int z)
-{
-    struct node *insert = (struct node *)malloc(sizeof(struct node));
-    struct node *p = head;
-    while (p->next != NULL)
-    {
-        p = p->next;
-    }
-    insert->data = z;
-    insert->next = p->next;
-    p->next = insert;
-    return head;
-}
-
 int main()
 {
     // ceration of nodes.
