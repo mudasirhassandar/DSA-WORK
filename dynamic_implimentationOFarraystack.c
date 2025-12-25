@@ -137,8 +137,9 @@ int main()
         if (popped != -1)
         {
             printf("Popped element = %d\n\n", popped);
-        }
+        
         display(&s);
+        }
     }
     int topelement = peek(&s);
     if (topelement != -1)
