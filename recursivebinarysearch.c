@@ -1,9 +1,18 @@
 #include <stdio.h>
-int binarysearch(int arr[], int n, int key)
+int Rbinarysearch(int arr[], int l, int h, int key)
 {
-    int l = 0;
-    int h = n - 1;
-    while (l < h)
+    if (l == h)
+    {
+        if (arr[l] == key)
+        {
+            return l;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    else
     {
         int mid = (l + h) / 2;
         if (key == arr[mid])
@@ -12,13 +21,14 @@ int binarysearch(int arr[], int n, int key)
         }
         else if (key > arr[mid])
         {
-            l = mid + 1;
+            return Rbinarysearch(arr, mid + 1, h, key);
         }
         else
         {
-            h = mid - 1;
+            return Rbinarysearch(arr, l, mid - 1, key);
         }
     }
+
     return -1;
 }
 int main()
@@ -36,7 +46,7 @@ int main()
     int key;
     printf("Enter the element you want find = ");
     scanf("%d", &key);
-    int index = binarysearch(arr, n, key);
+    int index = Rbinarysearch(arr, 0, n, key);
     if (index != -1)
     {
         printf("Element is found at position %d", index + 1);
