@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <limits.h>
-void insertionsort(int n, int arr[])
+#include <stdbool.h>
+void selectionsort(int n, int arr[])
 {
-    for (int i = 0; i < n -1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         int min = INT_MAX;
         int minidx = -1;
-        
+        bool flage = true;
+
         for (int j = i; j <= n - 1; j++)
         {
 
@@ -14,7 +16,12 @@ void insertionsort(int n, int arr[])
             {
                 min = arr[j];
                 minidx = j;
+                flage = false;
             }
+        }
+        if (flage == true)
+        {
+            break;
         }
         int temp = arr[minidx];
         arr[minidx] = arr[i];
@@ -41,7 +48,7 @@ int main()
         printf("%d ", arr[i]);
     }
 
-    insertionsort(n, arr);
+    selectionsort(n, arr);
     printf("\nSorted Array\n");
     for (int i = 0; i < n; i++)
     {
