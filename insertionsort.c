@@ -1,17 +1,27 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 void insertionsort(int n, int arr[])
 {
-    for (int i = 1; i <= n - 1; i++)
+    for (int i = 1; i < n; i++)
     {
+        bool flage = true;
         int j = i;
 
-        while (j > 0 && arr[j] < arr[j - 1])
+        while (j > 0)
         {
-            int temp = arr[j];
-            arr[j] = arr[j - 1];
-            arr[j - 1] = temp;
+            if (arr[j] < arr[j - 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j - 1];
+                arr[j - 1] = temp;
+                flage = false;
+            }
             j--;
+        }
+        if (flage == true)
+        {
+            break;
         }
     }
 

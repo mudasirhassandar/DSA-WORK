@@ -1,13 +1,12 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <limits.h>
 void insertionsort(int n, int arr[])
 {
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n -1; i++)
     {
         int min = INT_MAX;
         int minidx = -1;
-        bool flage = true;
+        
         for (int j = i; j <= n - 1; j++)
         {
 
